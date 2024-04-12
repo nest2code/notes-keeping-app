@@ -1,9 +1,49 @@
 {% extends "nav_bar.html" %}
-{% block title %} Login {% endblock %}
+{% block title %} Register {% endblock %}
 
+{% with messages = get_flashed_messages(with_categories=true)%}
 
+{% if messages  %}
+
+{% for category,message in messages %}
+
+{% if category == 'error' %}
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{% else %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Error</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
 {% block content %}
-This is register
+
+<form class="padding_fom-reg" method="post", action="">
+  <div class="mb-3">
+     <div class="mb-3">
+    <label for="name" class="form-label">Username</label>
+    <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+  </div>
+    <label for="Email1" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="Email1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="Password1" class="form-label">Password</label>
+    <input type="password" name="password1" class="form-control" id="Password1">
+  </div>
+<div class="mb-3">
+    <label for="Password2" class="form-label">Confirm Password</label>
+    <input type="password" name="password2" class="form-control" id="Password2">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}
 
 {% block footer %}
