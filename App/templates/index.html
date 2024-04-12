@@ -3,9 +3,17 @@
 
 
 {% block content %}
-
-
-
+<div class=""><div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Add Note</button>
+         </div>
+        <label for="heading" class="form-label">Description</label>
+            <input type="text" class="form-control" id="heading" placeholder="Add description">
+        </div>
+        <div class="mb-3 ">
+          <label for="exampleFormControlTextarea1" class="form-label">Note</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+</div>
 {% endblock %}
 
 
