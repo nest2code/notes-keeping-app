@@ -1,0 +1,37 @@
+{% extends "nav_bar.html" %}
+{% block title %} index {% endblock %}
+
+
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Heading</th>
+      <th scope="col">Note</th>
+      <th scope="col">Delete/Update</th>
+    </tr>
+  </thead>
+  {% for note in user.notes %}
+
+  <tbody>
+    <tr>
+      <td>{{ note.date }}</td>
+      <td>{{ note.heading }}</td>
+      <td>{{ note.data }}</td>
+      <td>
+        <button class="btn btn-success" onclick="update({{user.id}})"> Update </button>
+        <button class="btn btn-danger" onclick="delete({{user.id}})">Delete</button></td>
+    </tr>
+
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}
+
+
+
+{% block footer %}
+{% include "footer.html"%}
+{% endblock %}

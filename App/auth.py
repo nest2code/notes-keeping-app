@@ -21,7 +21,7 @@ def login():
                 flash('Invalid password', category='error')
         else:
             flash('invalid email', category='success')
-    return render_template('login.html',user = current_user)
+    return render_template('login.html', user=current_user)
 
 
 @auth.route("/sign-up", methods=['POST', "GET"])
@@ -47,10 +47,11 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             return redirect(url_for('auth.login'))
-    return render_template('register.html',user = current_user)
+    return render_template('register.html', user=current_user)
 
 
 @auth.route("/logout")
 @login_required
 def logout():
-    return redirect('auth.login')
+
+    return redirect(url_for('auth.login'))
